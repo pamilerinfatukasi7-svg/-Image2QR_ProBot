@@ -5,7 +5,7 @@ import logging
 import qrcode
 from qrcode.image.styledpil import StyledPilImage
 from qrcode.image.styles.moduledrawers import RoundedModuleDrawer, CircleModuleDrawer
-from qrcode.image.styles.colormasks import RadialGradientColorMask, SolidFillColorMask
+from qrcode.image.styles.colormasks import RadialGradiantColorMask, SolidFillColorMask  # FIXED: RadialGradiantColorMask (with 'a')
 from PIL import Image, ImageDraw
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import (
@@ -94,7 +94,7 @@ def generate_qr_code(data, fill_color='#000000', back_color='#FFFFFF', style='de
         elif style == 'gradient':
             img = qr.make_image(
                 image_factory=StyledPilImage,
-                color_mask=RadialGradientColorMask(
+                color_mask=RadialGradiantColorMask(  # FIXED: RadialGradiantColorMask (with 'a')
                     back_color=back_color,
                     center_color=fill_color,
                     edge_color=fill_color
